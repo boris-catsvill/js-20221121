@@ -6,5 +6,53 @@
 </body>
 
 <script type="module">
+  class Component {
+    constructor(title = '', data = []) {
+      this.title = title;
+      this.data = data;
 
+      this.render();
+    }
+
+    getDataList () {
+      return this.data.map(item => {
+        return `<li>${item.description}</li>`
+      }).join('');
+    }
+
+    getTemplate () {
+      return `
+        <div class="foo-bar">
+          <h2>${this.title}</h2>
+
+          <ul>
+            ${this.getDataList()}
+          </ul>
+        </div>
+      `;
+    }
+
+    render () {
+      const wrapper = document.createElement('div');
+
+      wrapper.innerHTML = this.getTemplate();
+
+      this.element = wrapper.firstElementChild;
+    }
+  }
+
+  const obj = new Component('some title', [
+    { id: 1, description: 'foo'},
+    { id: 2, description: 'bar'},
+    { id: 3, description: 'baz'},
+    { id: 3, description: 'baz'}
+  ]);
+
+  // const obj2 = new Component('new title', [
+  //   { id: 100500, description: 'zoo'},
+  // ]);
+
+  const rootElement = document.querySelector('#root');
+
+  rootElement.append(obj.element);
 </script>
