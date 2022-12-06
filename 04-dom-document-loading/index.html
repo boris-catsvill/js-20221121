@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+
+<body>
+  <div id="root"></div>
+</body>
+
+<script>
+  class Component {
+    static foo = 'some foo bar';
+
+    constructor(data, title) {
+      this.data = data;
+      this.title = title;
+    }
+
+    render () {}
+
+    remove() {}
+
+    destroy() {}
+  }
+
+  const component1 = new Component(['a', 'b', 'c'], 'first component');
+  const component2 = new Component([1, 2, 3], 'second component');
+
+  console.error(Component.foo);
+</script>
