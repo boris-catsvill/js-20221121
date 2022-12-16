@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<body>
+
+<div id="root"></div>
+
+<button id="btn">Click me maybe?!</button>
+
+<button id="btn2">Remove listener</button>
+
+</body>
+
+<script>
+  class Component {
+    element = document.createElement('div');
+
+    color = "black";
+
+    onClick = () => {
+      this.getTitle();
+    };
+
+    constructor () {
+      this.render();
+      this.getTitle = this.getTitle.bind(this);
+
+      this.initListeners();
+    }
+
+    render () {
+      // ...logic
+      // this.element = ...
+    }
+
+    getTitle () {
+      console.error(this.color);
+    }
+
+    initListeners () {
+      // document, window, another element...
+      this.element.addEventListener('click', this.onClick);
+      // fn, callback
+    }
+
+    removeListeners () {
+      // document, window, another element...
+    }
+
+    destroy () {
+      //
+    }
+  }
+
+  const obj = new Component();
+
+  console.error(obj);
+</script>
