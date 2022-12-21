@@ -13,7 +13,7 @@ export default class ImageUploader {
       const response = await fetch('https://api.imgur.com/3/image', {
         method: 'POST',
         headers: {
-          Authorization: `Client-ID ${IMGUR_CLIENT_ID}`
+          Authorization: `Client-ID ${IMGUR_CLIENT_ID}`,
         },
         body: formData,
         referrer: ''

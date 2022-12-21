@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<button id="btn">Click me!</button>
+
+<script>
+  btn.addEventListener('click', () => {
+    const myEvent = new CustomEvent('foo-bar', {
+      bubbles: true,
+      myProp: 1,
+      detail: "document"
+    });
+
+    btn.dispatchEvent(myEvent);
+  });
+
+  document.body.addEventListener('foo-bar', event => {
+    console.error('document.body', event);
+  })
+
+  document.addEventListener('foo-bar', event => {
+    console.error('document', event);
+
+    if (event.detail === "document") {
+      event.stopPropagation();
+    }
+  })
+
+  window.addEventListener('foo-bar', event => {
+    console.error('window', event);
+  })
+
+</script>
