@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*!
   * Bootstrap v5.2.0 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)

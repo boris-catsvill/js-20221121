@@ -3,27 +3,8 @@
 
 <body>
   <div id="root"></div>
-  <button id="btn">Clear</button>
 </body>
 
 <script type="module">
-  const documentController = new AbortController();
-  const mainController = new AbortController();
-  const elementController = new AbortController();
 
-  const { signal } = controller;
-
-  console.error(controller);
-
-  document.addEventListener('click', () => {
-    console.error('click');
-  }, { signal });
-
-  document.addEventListener('mousemove', () => {
-    console.error('mousemove');
-  }, { signal });
-
-  btn.addEventListener('click', () => {
-    controller.abort();
-  })
 </script>

@@ -8,7 +8,7 @@ import fetchJson from './utils/fetch-json.js';
 
 const BACKEND_URL = 'https://course-js.javascript.ru/';
 
-export default class Page {
+export default class DashboardPage {
   element;
   subElements = {};
   components = {};
@@ -145,7 +145,9 @@ export default class Page {
   }
 
   initEventListeners () {
-    this.components.rangePicker.element.addEventListener('date-select', event => {
+    const { rangePicker } = this.components;
+
+    rangePicker.element.addEventListener('date-select', event => {
       const { from, to } = event.detail;
 
       this.updateComponents(from, to);
